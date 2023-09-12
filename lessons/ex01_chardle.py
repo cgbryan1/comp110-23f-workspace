@@ -33,7 +33,9 @@ if(full_word(4)) == one_char:
 
 if(counter == 0):
     print("No instances of " + one_char + " found in " + full_word)
-else if(counter == 1):
-    print("1 instance of " + one_char + " found in " + full_word)
-else if(counter > 1):
-    print(counter + " instances of " + one_char + " found in " + full_word)
+else:
+    if (counter == 1):
+        print("1 instance of " + one_char + " found in " + full_word)
+    else:
+        if (counter > 1):
+            print(counter + " instances of " + one_char + " found in " + full_word)
