@@ -53,6 +53,7 @@ def main() -> None:
     guessed: bool = False
     user_guess: str = ""
 
+    # loop to go through guesses
     while (guessed == False and turn < 7):
         print(f"=== Turn {turn}/6 ===")
         user_guess: str = input_guess(len(secret_word))
