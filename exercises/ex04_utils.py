@@ -23,7 +23,7 @@ def max(input: list[int]) -> int:
     biggest: int = input[idx]
     # iterate through list and replace biggest with greater values
     while idx < len(input):
-        if biggest > input[idx]:
+        if biggest < input[idx]:
             biggest = input[idx]
         idx += 1
     # return the biggest value
