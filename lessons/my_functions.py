@@ -1,7 +1,10 @@
-"""Things i'll be importing."""
+"""Things I'll be importing."""
+
 
 def addition(x: int, y: int) -> int:
-    return x+y
+    """Adds the two input values."""
+    return x + y
+
 
 my_variable: str = "Hello!"
 

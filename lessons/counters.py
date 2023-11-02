@@ -1,4 +1,4 @@
-"""Practicing Counters"""
+"""Practicing counters."""
 
 num_string: str = "123"
 

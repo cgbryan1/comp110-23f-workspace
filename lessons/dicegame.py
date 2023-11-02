@@ -1,10 +1,10 @@
-"""Randomly rolls dice and sums total"""
+"""Randomly rolls dice and sums total."""
 
 from random import randint
 
-roll1: int = randint(1,6)
-roll2: int = randint(1,6)
-roll3: int = randint(1,6)
+roll1: int = randint(1, 6)
+roll2: int = randint(1, 6)
+roll3: int = randint(1, 6)
 
 dice_rolls: list[int] = [roll1, roll2, roll3]
 

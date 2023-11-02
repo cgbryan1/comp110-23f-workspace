@@ -3,15 +3,16 @@
 __author__ = "730657997"
 
 
-def invert(original: dict[str, str]) -> dict[str,str]:
+def invert(original: dict[str, str]) -> dict[str, str]:
     """Inverting a dictionary."""
-    inverted: dict[str, int] = {}
+    # need to make this int a str
+    inverted: dict[str, str] = {}
 
     for key in original:
         if original[key] in inverted:
-           raise KeyError("Can't assign two values to the same key!")
+            raise KeyError("Can't assign two values to the same key!")
         else:
-           inverted[original[key]] = key
+            inverted[original[key]] = key
 
     return inverted
 
@@ -37,7 +38,7 @@ def favorite_color(original: dict[str, str]) -> str:
             high_key = elem
             highest_val = color_frequency[elem]
 
-    return color_frequency[high_key]
+    return high_key
 
 
 def count(input: list[str]) -> dict[str, int]:
@@ -58,11 +59,28 @@ def alphabetizer(input: list[str]) -> dict[str, list[str]]:
     alphabetized: dict[str, list[str]] = {}
 
     for elem in input:
-        letter: str = (elem[0, 1]).lower()
-        alphabetized[letter].append(elem)
+        letter: str = elem[0].lower()
+        if letter in alphabetized:
+            alphabetized[letter].append(elem)
+        else:
+            alphabetized[letter] = [elem]
+    
+    return alphabetized
 
 
 def update_attendance(attendance: dict[str, list[str]], day: str, student: str) -> dict[str, list[str]]:
     """Adding student to the day's attendance list."""
-    attendance[day].append(student)
+    if day in attendance:
+        already_marked: bool = False
+        little_list: list[str] = attendance[day]
+        
+        for elem in little_list:
+            if elem == student:
+                already_marked = True
+        
+        if not already_marked:
+            attendance[day].append(student)
+    else:
+        attendance[day] = [student]
+
     return attendance

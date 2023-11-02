@@ -1,8 +1,11 @@
-"""This is my function! It draws a snowcone, and then decorates the area around it with stars, spikes, and dots - I was trying to make it like a poster, but without text. :) 
-I tried to do something different by using semicircles and dots, which we didn't learn about in the turtle lesson - I found them through the documentation.
-    I used these new tools in snowcone (line 47) and the dots function.
+"""This is my function!
+
+It draws a snowcone, and then decorates the area around it with stars, spikes, and dots - I was trying to make it like a poster, but without text. 
+I tried to do something different by using semicircles and circles, which we didn't learn about in the turtle lesson - I found them through the documentation.
+I used these new tools in snowcone (line 47) and the dots function.
 I also used randint to randomize colors and locations of different drawings, to make sure my program wasn't hard-coded! 
-    I used randint in all of my functions except for snowcone, since I wanted it to be centered."""
+I used randint in all of my functions except for snowcone, since I wanted it to be centered.
+"""
 
 __author__ = "_730657997_"
 
@@ -13,9 +16,7 @@ colormode(255)
 
 def snowCone(temp_turt: Turtle) -> None:
     """Drawing a styrofoam cup and a random-colored snowcone scoop on top."""
-    temp_turt: Turtle = Turtle()
-
-   #setting up turtle to draw a grey styrofoam cup
+    # setting up turtle to draw a grey styrofoam cup
     temp_turt.color(180, 180, 180)
     temp_turt.speed(100000)
     temp_turt.penup()
@@ -23,22 +24,22 @@ def snowCone(temp_turt: Turtle) -> None:
     temp_turt.begin_fill()
     temp_turt.setheading(100.0)
     temp_turt.pendown()
-    #drawing the left side of cup
+    # drawing the left side of cup
     temp_turt.forward(100)
-    #turning and doing top edge
+    # turning and doing top edge
     temp_turt.right(100)
     temp_turt.forward(90)
-    #turning and doing right side
+    # turning and doing right side
     temp_turt.right(100)
     temp_turt.forward(100)
-    #turning and doing bottom
+    # turning and doing bottom
     temp_turt.right(80)
     temp_turt.forward(60)
     temp_turt.end_fill()
 
-    #setting snowcone to be random color
+    # setting snowcone to be random color
     temp_turt.color(randint(0, 255), randint(0, 255), randint(0, 255))
-    #drawing the arch of the snowcone on top
+    # drawing the arch of the snowcone on top
     temp_turt.penup()
     temp_turt.speed(100000)
     temp_turt.goto(-72, 190)
@@ -51,7 +52,6 @@ def snowCone(temp_turt: Turtle) -> None:
 
 def star(turt: Turtle, size: int) -> None:
     """Drawing 4 randomly located stars with the specified size."""
-    turt: Turtle = Turtle()
     turt.color(254, 227, 46)
     
     idx: int = 0
@@ -75,7 +75,6 @@ def star(turt: Turtle, size: int) -> None:
 
 def spike(turt: Turtle, size: int) -> None:
     """This function draws a random number of stars of a specified size."""
-    turt: Turtle = Turtle()
     turt.color(randint(0, 255), randint(0, 255), randint(0, 255))
     num_stars: int = randint(0, 10)
     num: int = 0
@@ -96,27 +95,32 @@ def spike(turt: Turtle, size: int) -> None:
 
 def dots(turt: Turtle, amount: int) -> None:
     """This function scatters multicolored dots across the poster!"""
-    turt: Turtle = Turtle()
     turt.speed(100000)
 
     idx: int = 0
     while (idx < amount):
+        turt.color(randint(0, 255), randint(0, 255), randint(0, 255))
         turt.penup()
+        turt.speed(100000)
         turt.goto(randint(-500, 500), randint(-500, 500))
         turt.pendown()
-        turt.dot(4, randint(0, 255), randint(0, 255), randint(0, 255))
+        turt.begin_fill()
+        turt.circle(10)
+        turt.end_fill()
         idx += 1
     done()
 
+
 def main() -> None:
-    """The entrypoint of my scene. Calls all drawing functions"""
+    """The entrypoint of my scene. Calls all drawing functions."""
     my_turtle: Turtle = Turtle()
     snowCone(my_turtle)
-    star_size: int = randint(0,100)
+    star_size: int = randint(0, 100)
     star(my_turtle, star_size)
     spike(my_turtle, star_size)
     dots(my_turtle, randint(100, 200))
     done()
+
 
 if __name__ == "__main__":
     main()

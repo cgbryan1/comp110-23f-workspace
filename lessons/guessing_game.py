@@ -1,4 +1,4 @@
-"""Game that only completes when you guess the right number"""
+"""Game that only completes when you guess the right number."""
 
 from random import randint
 
@@ -14,6 +14,6 @@ while guess != secret:
         print("Your guess was too high!")
     else:
         print("Your guess was too low!")
-    tries +=1
+    tries += 1
     guess = int(input("Guess again! "))
 print("You got it in " + str(tries) + " tries!")
