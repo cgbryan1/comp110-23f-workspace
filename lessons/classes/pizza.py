@@ -48,3 +48,8 @@ class Pizza:
         """Make a new pizza with exisitng property and add toppings."""
         new_pizza: Pizza = Pizza(self.size, self.toppings + num_toppings, self.gluten_free)
         return new_pizza
+    
+    def __str__(self) -> str:
+        """Changes what gets printed when you print a function."""
+        pizza_info: str = f"PIZZA ORDER: size {self.size}, toppings: {self.toppings}, GF: {self.gluten_free}"
+        return pizza_info
