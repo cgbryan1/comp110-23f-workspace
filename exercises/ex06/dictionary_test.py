@@ -1,4 +1,4 @@
-"""Testing dictionary.py functionality."""
+"""Testing dictionary.py functionality, EX07."""
 
 __author__ = "730657997"
 
