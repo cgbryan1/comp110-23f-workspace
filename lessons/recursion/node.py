@@ -27,13 +27,12 @@ class Node:
         # return data attribute for first element in linked list
         return self.data
     
-    def tail(self) -> str:
+    def tail(self) -> Node | None:
         """Returns a linked list of every element minus the head."""
-        if self.next is not None:
-            return str(self.data) + " -> " + str(self.next)
+        return self.next
     
     def last(self) -> int:
-        """Returns the `data` of the last element in the linked list."""
+        """Returns the data of the last element in the linked list."""
         if self.next is None:
             return self.data
         else:
