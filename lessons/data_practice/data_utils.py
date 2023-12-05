@@ -22,22 +22,12 @@ def column_vals(table: list[dict[str, str]], header: str) -> list[str]:
         result.append(row[header])
     return result
 
-# x: list[dict[str, str]] = [{"Comp": "110", "Bio": "100"}, {"Comp": "210", "Bio": "200"}]
-
-# list[dict]:
-# [{'Day': 'Monday', 'Low': '56', 'High': '75'}, {'Day': 'Tuesday', 'Low': '53', 'High': '72'}, {'Day': 'Wednesday', 'Low': '50', 'High': '72'}]
-# list holds dict[monStats], dict[tuesStats], dict[wedStats]
-
-# dict[list]
-# Day: list[days], Low : list[lows], High: list[highs]
-# {'Day': ['Monday', 'Tuesday', 'Wednesday'], 'Low': ['56', '53', '50'], 'High': ['75', '72', '72']}
-def columnar(d: list[dict[str,str]]) -> dict[str, list[str, str]]:
-    modified: dict[str, list[str, str]] = {}
-    # within the first item (dict) in the list,
-    for idx in range(0, 1):
-        # take each key from that dict and append it to the new empty dict
-        for key in d[1]:
-            modified[key] = list(column_vals(d, key))
-    
-    return modified
-
+def columnar(table: list[dict[str,str]]) -> dict[str, list[str]]:
+    """Reformat data so it's a dictionary with column headers as keys"""
+    result: dict[str, list[str]] = {}
+    # loop through keys of one row of the table to get the headers
+    first_row: dict[str,str] = table[0]
+    for key in first_row:
+        # for each key (header), make a dictionary entry with all the column values
+        result[key] = column_vals(table, key)
+    return result
